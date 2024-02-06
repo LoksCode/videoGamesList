@@ -7,8 +7,7 @@ const userInputs = addGameModal.querySelectorAll('input');
 const entryTextSection = document.getElementById('entry-text');
 const listRoot = document.getElementById('game-list');
 const deleteGameModal = document.getElementById('delete-modal');
-
-const games = [];
+const games = []; // list that holds game list in JS
 
 const toggleBackdrop = () => {
   backdrop.classList.toggle('visible');
@@ -38,7 +37,8 @@ const startDeletionGameHandler = (gameId) => {
   toggleBackdrop();
   const cancelDeletionBtn = deleteGameModal.querySelector('.btn--passive');
   let confirmDeletionBtn = deleteGameModal.querySelector('.btn--danger');
-  confirmDeletionBtn.replaceWith(confirmDeletionBtn.cloneNode(true));
+
+  confirmDeletionBtn.replaceWith(confirmDeletionBtn.cloneNode(true)); // the clone is necessary to delete not wanted event listeners
 
   confirmDeletionBtn = deleteGameModal.querySelector('.btn--danger');
 
@@ -86,6 +86,7 @@ const showGameModal = () => {
 };
 
 const clearGameInputs = () => {
+  // it basicly clears the input after closing the input modal
   for (const usrInput of userInputs) {
     usrInput.value = '';
   }
